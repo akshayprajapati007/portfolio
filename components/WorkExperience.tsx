@@ -1,5 +1,5 @@
-import { headTextAnimation, inViewUpAnimation } from "./config/motion"
-import MotionWrapper from "./ui/motionWrapper"
+import { headTextAnimation, inViewUpAnimation } from "@/config/motion"
+import MotionWrapper from "@/components/ui/motionWrapper"
 
 interface WorkExperienceItem {
   id: number
