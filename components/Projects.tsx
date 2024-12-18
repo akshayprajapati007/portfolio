@@ -1,6 +1,8 @@
 import Link from "next/link"
 import React from "react"
-import { Button } from "./ui/button"
+import { Button } from "./ui/Button"
+import MotionWrapper from "./ui/MotionWrapper"
+import { headTextAnimation, inViewUpAnimation } from "./config/motion"
 
 const projects = [
   {
@@ -38,59 +40,63 @@ const projects = [
 function Projects() {
   return (
     <div className="flex flex-col gap-4 w-full">
-      <h1 className="text-2xl font-bold">Projects</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {projects.map((projectDetails) => {
-          const {
-            id,
-            code,
-            description,
-            link,
-            previewVideo,
-            technologies,
-            title,
-          } = projectDetails
+      <MotionWrapper {...headTextAnimation}>
+        <h1 className="text-2xl font-bold">Projects</h1>
+      </MotionWrapper>
+      <MotionWrapper {...inViewUpAnimation}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {projects.map((projectDetails) => {
+            const {
+              id,
+              code,
+              description,
+              link,
+              previewVideo,
+              technologies,
+              title,
+            } = projectDetails
 
-          return (
-            <div
-              key={id}
-              className="flex flex-col border rounded-md dark:border-gray-700"
-            >
-              <video
-                src={previewVideo}
-                autoPlay
-                muted
-                loop
-                className="rounded-t-md"
-              />
-              <div className="flex flex-col gap-3 p-4 grow">
-                <h2 className="text-xl font-bold">{title}</h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  {description}
-                </p>
-                <div className="flex flex-wrap gap-[4px]">
-                  {technologies.map((technology) => (
-                    <span
-                      key={technology}
-                      className="bg-slate-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"
-                    >
-                      {technology}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-2 mt-auto">
-                  <Link href={link} target="_blank">
-                    <Button variant="default">View</Button>
-                  </Link>
-                  <Link href={code} target="_blank">
-                    <Button variant="outline">Code</Button>
-                  </Link>
+            return (
+              <div
+                key={id}
+                className="flex flex-col border rounded-md dark:border-gray-700"
+              >
+                <video
+                  src={previewVideo}
+                  autoPlay
+                  muted
+                  loop
+                  className="rounded-t-md"
+                />
+                <div className="flex flex-col gap-3 p-4 grow">
+                  <h2 className="text-xl font-bold">{title}</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {description}
+                  </p>
+                  <div className="flex flex-wrap gap-[4px]">
+                    {technologies.map((technology) => (
+                      <span
+                        key={technology}
+                        className="bg-slate-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300"
+                      >
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-2 mt-auto">
+                    <Link href={link} target="_blank">
+                      <Button variant="default">View</Button>
+                    </Link>
+                    <Link href={code} target="_blank">
+                      <Button variant="outline">Code</Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          )
-        })}
-      </div>
+            )
+          })}
+        </div>
+      </MotionWrapper>
     </div>
   )
 }

@@ -1,3 +1,6 @@
+import { headTextAnimation, inViewUpAnimation } from "./config/motion"
+import MotionWrapper from "./ui/MotionWrapper"
+
 interface WorkExperienceItem {
   id: number
   startDate: string
@@ -40,42 +43,53 @@ const workExperienceData: WorkExperienceItem[] = [
 const WorkExperience: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 w-full -z-10">
-      <h1 className="text-2xl font-bold">Work Experience</h1>
-
-      <ol className="relative border-s border-gray-200 dark:border-gray-700">
-        {workExperienceData.map((experienceDetails, index) => {
-          const { id, companyName, description, jobTitle, startDate, endDate } =
-            experienceDetails
-          return (
-            <li
-              key={id}
-              className={`ms-4 ${
-                index === workExperienceData.length - 1 ? "mb-2" : "mb-10"
-              }`}
-            >
-              <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-              <time className="mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                {startDate} - {endDate || "Present"}
-              </time>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                {jobTitle}
-              </h3>
-              <h2 className="mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                {companyName}
-              </h2>
-              <div className="text-base font-normal text-gray-700 dark:text-gray-400">
-                <ul>
-                  {description.map((desc) => (
-                    <li key={desc}>
-                      <p className="text-gray-700 dark:text-gray-400">{desc}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          )
-        })}
-      </ol>
+      <MotionWrapper {...headTextAnimation}>
+        <h1 className="text-2xl font-bold">Work Experience</h1>
+      </MotionWrapper>
+      <MotionWrapper {...inViewUpAnimation}>
+        <ol className="relative border-s border-gray-200 dark:border-gray-700">
+          {workExperienceData.map((experienceDetails, index) => {
+            const {
+              id,
+              companyName,
+              description,
+              jobTitle,
+              startDate,
+              endDate,
+            } = experienceDetails
+            return (
+              <li
+                key={id}
+                className={`ms-4 ${
+                  index === workExperienceData.length - 1 ? "mb-2" : "mb-10"
+                }`}
+              >
+                <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                <time className="mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  {startDate} - {endDate || "Present"}
+                </time>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {jobTitle}
+                </h3>
+                <h2 className="mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+                  {companyName}
+                </h2>
+                <div className="text-base font-normal text-gray-700 dark:text-gray-400">
+                  <ul>
+                    {description.map((desc) => (
+                      <li key={desc}>
+                        <p className="text-gray-700 dark:text-gray-400">
+                          {desc}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            )
+          })}
+        </ol>
+      </MotionWrapper>
     </div>
   )
 }
