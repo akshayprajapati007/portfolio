@@ -1,7 +1,7 @@
 import Link from "next/link"
 import React from "react"
 import { Button } from "@/components/ui/Button"
-import MotionWrapper from "@/components/ui/motionWrapper"
+import MotionWrapper from "@/components/ui/MotionWrapper"
 import { headTextAnimation, inViewUpAnimation } from "@/config/motion"
 
 const projects = [

@@ -1,5 +1,5 @@
 import React from "react"
-import MotionWrapper from "@/components/ui/motionWrapper"
+import MotionWrapper from "@/components/ui/MotionWrapper"
 import { headTextAnimation, inViewUpAnimation } from "@/config/motion"
 
 interface EducationItem {

@@ -1,7 +1,7 @@
 import Image from "next/image"
 import ProfilePic from "@/app/images/Akshay.webp"
 import { headContentAnimation, headTextAnimation } from "@/config/motion"
-import MotionWrapper from "@/components/ui/motionWrapper"
+import MotionWrapper from "@/components/ui/MotionWrapper"
 
 export default function Intro() {
   return (
