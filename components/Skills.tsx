@@ -1,5 +1,5 @@
 import React from "react"
-import MotionWrapper from "./ui/MotionWrapper"
+import MotionWrapper from "./ui/motionWrapper"
 import { headTextAnimation, inViewUpAnimation } from "./config/motion"
 
 const skillsData = [

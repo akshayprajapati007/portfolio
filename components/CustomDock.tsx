@@ -4,14 +4,14 @@ import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import { CalendarIcon, HomeIcon, MailIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button, buttonVariants } from "@/components/ui/Button"
-import { Separator } from "@/components/ui/Separator"
+import { Button, buttonVariants } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/Tooltip"
+} from "@/components/ui/tooltip"
 import { Dock, DockIcon } from "@/components/magicui/dock"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"

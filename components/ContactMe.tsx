@@ -1,6 +1,6 @@
 import Link from "next/link"
 import React from "react"
-import MotionWrapper from "./ui/MotionWrapper"
+import MotionWrapper from "./ui/motionWrapper"
 import { headContentAnimation, headTextAnimation } from "./config/motion"
 
 function ContactMe() {
